@@ -5,11 +5,12 @@
   --color2: rgb(25, 40, 110);
   --color3: rgb(105, 165, 255);
   --color4: rgb(80, 130, 200);
+  --color5: rgb(55, 55, 55);
 }
 
 /* --------------------------- BACKGROUND --------------------------- */
 html {
-  background-color: rgb(55, 55, 55);
+  background-color: var(--color5);
 }
 
 
