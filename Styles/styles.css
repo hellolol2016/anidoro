@@ -6,11 +6,18 @@
   --color3: rgb(105, 165, 255);
   --color4: rgb(80, 130, 200);
   --color5: rgb(55, 55, 55);
+  --color6: rgb(80, 80, 80);
+  --color7: rgb(45, 45, 45);
 }
 
 /* --------------------------- BACKGROUND --------------------------- */
 html {
   background-color: var(--color5);
+  font-family: 'ubuntu'
+}
+
+*:focus {
+  outline: none;
 }
 
 
@@ -31,10 +38,27 @@ img{
 
 /*------------------- SELECT MENUES ----------------------*/
 
+.selector_label {
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
+  position: relative;
+  left: 32.5%;
+  white-space: nowrap;
+}
+
+.selector_label > div {
+  display: inline-block;
+}
+
+.break_label {
+  position: relative;
+  left: 17%;
+}
+
 select {
-  width: 250px;
-  height: 50px;
-  font-size: 100%;
+  width: 100%;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 0;
@@ -47,18 +71,29 @@ select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: 10px;
 }
 
 .selectors {
   position: relative;
-  left: 27.5%;
+  left: 30%;
+  white-space: nowrap;
+  margin-top: 0.5%;
+}
+
+.selectors > div {
+  display: inline-block;
+}
+
+.work_dur {
+  width: 12%;
+  height: 50px;
 }
 
 .break_dur {
+  width: 12%;
+  height: 50px;
   position: relative;
-  left: 550px;
-  bottom: 70px;
+  left: 10%
 }
 
 select:hover, select:focus{
@@ -68,11 +103,11 @@ select:hover, select:focus{
 }
 
 select:focus ~ .drop-down{
-  width: 20px;
-  height: 20px;
+  width: 10%;
+  height: 10%;
   position: relative;
-  left: 210px;
-  bottom: 37px;
+  left: 85%;
+  bottom: 35px;
 
   --a: 1.5em;
   border-bottom: calc(0.866 * var(--a)) solid #ffffff;
@@ -84,11 +119,11 @@ select:focus ~ .drop-down{
 }
 
 .drop-down {
-  width: 20px;
-  height: 20px;
+  width: 10%;
+  height: 10%;
   position: relative;
-  left: 210px;
-  bottom: 37px;
+  left: 85%;
+  bottom: 35px;
 
   --a: 1.5em;
   border-top: calc(0.866 * var(--a)) solid #ffffff;
@@ -100,6 +135,78 @@ select:focus ~ .drop-down{
   width: 0;
 }
 
-*:focus {
-  outline: none;
+.Go {
+  width: 6%;
+  height: 40px;
+  border-radius: 50px;
+  background-color: var(--color1);
+  border: hidden;
+  border-bottom: 10px;
+  color: white;
+  font-family: 'ubuntu';
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+  left: 15%
+}
+
+.Go:hover {
+  background-color: var(--color3);
+}
+
+
+/*--------------------------------- TIMER --------------------------------*/
+
+.timer {
+  width: 50%;
+  height: 600px;
+  background-color: var(--color6);
+  position: relative;
+  left: 25%;
+  margin-top: 5%;
+  border-radius: 5%;
+}
+
+.work_grind {
+  width: 15%;
+  height: 7%;
+  position: relative;
+  left: 25%;
+  top: 7%;
+  font-family: 'ubuntu';
+  font-size: 25px;
+  border: none;
+  border-radius: 5%;
+  background-color: var(--color6);
+  color: white;
+}
+.work_grind:active{
+  background-color: var(--color7);
+  top: 8%;
+}
+.work_grind:focus{
+  background-color: var(--color7);
+}
+
+.break_time {
+  width: 16%;
+  height: 7%;
+  position: relative;
+  left: 40%;
+  top: 7%;
+  font-family: 'ubuntu';
+  font-size: 25px;
+  border: none;
+  border-radius: 5%;
+  background-color: var(--color6);
+  color: white;
+}
+.break_time:active{
+  background-color: var(--color7);
+  top: 8%;
+}
+.break_time:focus{
+  background-color: var(--color7);
 }

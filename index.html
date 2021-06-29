@@ -16,37 +16,42 @@
     <body>
         <img src="media/logo.png">
         
-        <div class="selectors">
-
-            <div class="work_dur">
-                <select>
-                    <option value="0">25:00</option>
-                    <option value="1">30:00</option>
-                    <option value="2">40:00</option>
-                    <option value="3">45:00</option>
-                    <option value="4">1:00:00</option>
-                    <option value="5">1:30:00</option>
-                </select>
-
-                <div class="drop-down"></div>
-            
-            </div>
-
-            <div class="break_dur">
-                <select>
-                    <option value="0">5:00</option>
-                    <option value="1">10:00</option>
-                    <option value="2">15:00</option>
-                    <option value="3">20:00</option>
-                    <option value="4">25:00</option>
-                    <option value="5">30:00</option>
-                </select>
-
-                <div class="drop-down"></div>
-            </div>
-            <!-- <button>Go</button> -->
+        <div class="selector_label">
+            <div>Work Duration</div>
+            <div class="break_label">Break</div>
         </div>
 
+        <div class="selectors">
+            <div class="work_dur">
+                <select class="work-select">
+                    <option value="25">25:00</option>
+                    <option value="30">30:00</option>
+                    <option value="40">40:00</option>
+                    <option value="45">45:00</option>
+                    <option value="60">1:00:00</option>
+                    <option value="90">1:30:00</option>
+                </select>
+                <div class="drop-down"></div>
+            </div>
+            <div class="break_dur">
+                <select class="break-select">
+                    <option value="5">5:00</option>
+                    <option value="10">10:00</option>
+                    <option value="15">15:00</option>
+                    <option value="20">20:00</option>
+                    <option value="25">25:00</option>
+                    <option value="30">30:00</option>
+                </select>
+                <div class="drop-down"></div>
+            </div>
+            <button class="Go">Set Time</button>
+        </div>
+
+        <div class="timer">
+            <button class="work_grind">Work Grind</button>
+            <button class="break_time">Break Time!</button>
+            <h1></h1>
+        </div>
         
     </body>
     <script src="scripts/script.js"></script>
