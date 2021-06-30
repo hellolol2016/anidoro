@@ -8,6 +8,7 @@
   --color5: rgb(55, 55, 55);
   --color6: rgb(80, 80, 80);
   --color7: rgb(45, 45, 45);
+  --color8: rgb(20, 20, 20);
 }
 
 /* --------------------------- BACKGROUND --------------------------- */
@@ -40,26 +41,23 @@ img{
 .selector_container{
   display:flex;
   flex-direction:column;
-  width:600px;
-}
-
-.selector_label {
-  display:flex;
-  font-size: 20px;
-  font-weight: 300;
-  color: white;
-  position: relative;
-  display: inline-block;
-
+  width:6000px;
 }
 
 .work_label {
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
   float: left;
+  margin-left: 15%;
 }
 
 .break_label {
-  margin-left: 15px;
+  font-size: 20px;
+  font-weight: 300;
+  color: white;
   float: left;
+  margin-left: 35%;
 }
 
 select {
@@ -81,27 +79,29 @@ select {
 
 .selectors {
   display:flex;
-  
-  position: relative;
-  left: 30%;
-  white-space: nowrap;
+  margin-left: 33%;
   margin-top: 0.5%;
 }
 
-.selectors > div {
-  display: inline-block;
-}
 
 .work_dur {
-  width: 12%;
+  width: 15%;
   height: 50px;
 }
 
 .break_dur {
-  width: 12%;
+  width: 15%;
   height: 50px;
-  position: relative;
-  left: 10%;
+  float: left;
+  margin-left: 12%;
+}
+
+.work_select {
+  margin-top: 5%;
+}
+
+.break_select {
+  margin-top: 5%;
 }
 
 select:hover, select:focus{
@@ -125,10 +125,10 @@ select:focus ~ .drop-down{
 
 .drop-down {
   width: 10%;
-  height: 10%;
   float: right;
-  margin-top: 0%;
-
+  margin-right: 5%;
+  position: relative;
+  bottom: 75%;
   --a: 1.5em;
   border-top: calc(0.866 * var(--a)) solid #ffffff;
   border-left: calc(var(--a) / 2) solid transparent;
@@ -140,7 +140,7 @@ select:focus ~ .drop-down{
 }
 
 .Go {
-  width: 6%;
+  width: 8%;
   height: 40px;
   border-radius: 50px;
   background-color: var(--color1);
@@ -152,8 +152,9 @@ select:focus ~ .drop-down{
   font-weight: 300;
   text-align: center;
   transition: all 0.2s;
-  position: relative;
-  left: 15%
+  float: left;
+  margin-top: 2.6%;
+  margin-left: 5%;
 }
 
 .Go:hover {
@@ -169,9 +170,21 @@ select:focus ~ .drop-down{
   background-color: var(--color6);
   position: relative;
   left: 25%;
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius: 5%;
 }
+
+.actual_timer {
+  margin-top: 12%;
+  margin-left: 21%;
+  margin-bottom: 0%;
+  font-size: 200px;
+  font-family: 'ubuntu';
+  color: var(--color8);
+}
+
+
+/* ------------------------------ TIMER CONFIG --------------------------- */
 
 .work_grind {
   width: 15%;
@@ -213,11 +226,6 @@ select:focus ~ .drop-down{
   background-color: var(--color7);
 }
 
-
-
-
-/* ------------------------------ TIMER CONFIG --------------------------- */
-
 .play_arrow {
   color: var(--color1);
   font-size: 125px;
@@ -227,4 +235,6 @@ select:focus ~ .drop-down{
   background-color: transparent;
   border: none;
   width: 100px;
+  margin-left: 42%;
+  margin-top: 5%;
 }

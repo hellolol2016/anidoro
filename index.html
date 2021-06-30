@@ -18,14 +18,11 @@
     <body>
         <img src="media/logo.png">
         <div class="selector-container">
-            <div class="selector_label">
-                <div class="work_label">Work Duration</div>
-                <div class="break_label">Break</div>
-            </div>
 
             <div class="selectors">
                 <div class="work_dur">
-                    <select class="work-select">
+                    <div class="work_label">Work Duration</div>
+                    <select class="work_select">
                         <option value="25">25:00</option>
                         <option value="30">30:00</option>
                         <option value="40">40:00</option>
@@ -36,7 +33,8 @@
                     <div class="drop-down"></div>
                 </div>
                 <div class="break_dur">
-                    <select class="break-select">
+                    <div class="break_label">Break</div>
+                    <select class="break_select">
                         <option value="5">5:00</option>
                         <option value="10">10:00</option>
                         <option value="15">15:00</option>
@@ -53,7 +51,7 @@
         <div class="timer">
             <button class="work_grind selected">Work Grind</button>
             <button class="break_time">Break Time!</button>
-            <h1></h1>
+            <h1 class="actual_timer"></h1>
             <button class="start_timer"><i class="material-icons play_arrow">play_arrow</i></button>
         </div>
         
