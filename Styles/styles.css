@@ -20,7 +20,6 @@ html {
   outline: none;
 }
 
-
 /*------------------------- HEADING -----------------------------*/
 h1 {
     font-size: 50px;
@@ -38,22 +37,29 @@ img{
 
 /*------------------- SELECT MENUES ----------------------*/
 
+.selector_container{
+  display:flex;
+  flex-direction:column;
+  width:600px;
+}
+
 .selector_label {
+  display:flex;
   font-size: 20px;
   font-weight: 300;
   color: white;
   position: relative;
-  left: 32.5%;
-  white-space: nowrap;
+  display: inline-block;
+
 }
 
-.selector_label > div {
-  display: inline-block;
+.work_label {
+  float: left;
 }
 
 .break_label {
-  position: relative;
-  left: 17%;
+  margin-left: 15px;
+  float: left;
 }
 
 select {
@@ -74,6 +80,8 @@ select {
 }
 
 .selectors {
+  display:flex;
+  
   position: relative;
   left: 30%;
   white-space: nowrap;
@@ -93,7 +101,7 @@ select {
   width: 12%;
   height: 50px;
   position: relative;
-  left: 10%
+  left: 10%;
 }
 
 select:hover, select:focus{
@@ -105,9 +113,6 @@ select:hover, select:focus{
 select:focus ~ .drop-down{
   width: 10%;
   height: 10%;
-  position: relative;
-  left: 85%;
-  bottom: 35px;
 
   --a: 1.5em;
   border-bottom: calc(0.866 * var(--a)) solid #ffffff;
@@ -121,9 +126,8 @@ select:focus ~ .drop-down{
 .drop-down {
   width: 10%;
   height: 10%;
-  position: relative;
-  left: 85%;
-  bottom: 35px;
+  float: right;
+  margin-top: 0%;
 
   --a: 1.5em;
   border-top: calc(0.866 * var(--a)) solid #ffffff;
@@ -186,9 +190,6 @@ select:focus ~ .drop-down{
   background-color: var(--color7);
   top: 8%;
 }
-.work_grind:focus{
-  background-color: var(--color7);
-}
 
 .break_time {
   width: 16%;
@@ -207,6 +208,23 @@ select:focus ~ .drop-down{
   background-color: var(--color7);
   top: 8%;
 }
-.break_time:focus{
+
+.selected{
   background-color: var(--color7);
+}
+
+
+
+
+/* ------------------------------ TIMER CONFIG --------------------------- */
+
+.play_arrow {
+  color: var(--color1);
+  font-size: 125px;
+}
+
+.start_timer {
+  background-color: transparent;
+  border: none;
+  width: 100px;
 }

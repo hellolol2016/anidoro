@@ -1,0 +1,12 @@
+.big{
+    height:150px;
+    width:500px;
+    background-color:black;
+}
+.small{
+    height:100px;
+    width:100px;
+    background-color:blue;
+    float:right;
+    margin:10px;
+}

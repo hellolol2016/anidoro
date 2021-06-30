@@ -6,51 +6,55 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
         <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
-
+        <link rel="icon" href="media/icon2.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
         <img src="media/logo.png">
-        
-        <div class="selector_label">
-            <div>Work Duration</div>
-            <div class="break_label">Break</div>
-        </div>
+        <div class="selector-container">
+            <div class="selector_label">
+                <div class="work_label">Work Duration</div>
+                <div class="break_label">Break</div>
+            </div>
 
-        <div class="selectors">
-            <div class="work_dur">
-                <select class="work-select">
-                    <option value="25">25:00</option>
-                    <option value="30">30:00</option>
-                    <option value="40">40:00</option>
-                    <option value="45">45:00</option>
-                    <option value="60">1:00:00</option>
-                    <option value="90">1:30:00</option>
-                </select>
-                <div class="drop-down"></div>
+            <div class="selectors">
+                <div class="work_dur">
+                    <select class="work-select">
+                        <option value="25">25:00</option>
+                        <option value="30">30:00</option>
+                        <option value="40">40:00</option>
+                        <option value="45">45:00</option>
+                        <option value="60">1:00:00</option>
+                        <option value="90">1:30:00</option>
+                    </select>
+                    <div class="drop-down"></div>
+                </div>
+                <div class="break_dur">
+                    <select class="break-select">
+                        <option value="5">5:00</option>
+                        <option value="10">10:00</option>
+                        <option value="15">15:00</option>
+                        <option value="20">20:00</option>
+                        <option value="25">25:00</option>
+                        <option value="30">30:00</option>
+                    </select>
+                    <div class="drop-down"></div>
+                </div>
+                <button class="Go">Set Time</button>
             </div>
-            <div class="break_dur">
-                <select class="break-select">
-                    <option value="5">5:00</option>
-                    <option value="10">10:00</option>
-                    <option value="15">15:00</option>
-                    <option value="20">20:00</option>
-                    <option value="25">25:00</option>
-                    <option value="30">30:00</option>
-                </select>
-                <div class="drop-down"></div>
-            </div>
-            <button class="Go">Set Time</button>
         </div>
 
         <div class="timer">
-            <button class="work_grind">Work Grind</button>
+            <button class="work_grind selected">Work Grind</button>
             <button class="break_time">Break Time!</button>
             <h1></h1>
+            <button class="start_timer"><i class="material-icons play_arrow">play_arrow</i></button>
         </div>
         
     </body>
