@@ -14,7 +14,6 @@
 /* --------------------------- BACKGROUND --------------------------- */
 html {
   font-family: 'ubuntu';
-  background-color: var(--color5);
 }
 
 *:focus {
