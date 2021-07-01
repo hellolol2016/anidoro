@@ -13,7 +13,8 @@
 
 /* --------------------------- BACKGROUND --------------------------- */
 html {
-  font-family: 'ubuntu'
+  font-family: 'ubuntu';
+  background-color: var(--color5);
 }
 
 *:focus {
@@ -47,7 +48,6 @@ img{
 .break_label {
   font-size: 1.1vw;
   font-weight: 300;
-  color: white;
   float: left;
   margin-left: 35%;
 }
@@ -58,10 +58,7 @@ select {
   font-weight: bold;
   cursor: pointer;
   border-radius: 0;
-  background-color: var(--color1);
   border: none;
-  border-bottom: 5px solid var(--color2);
-  color: white;
   font-family: 'ubuntu';
   padding: 10px;
   appearance: none;
@@ -97,9 +94,7 @@ select {
 }
 
 select:hover, select:focus{
-  color: var(--color1);
-  background-color: var(--color3);
-  border-bottom-color: var(--color4);
+
 }
 
 select:focus ~ .drop-down{

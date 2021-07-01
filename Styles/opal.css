@@ -10,11 +10,30 @@
     --color8: rgb(20, 20, 20);
   }
 
+/*--background--*/
 
 #opal html {
     background-color: var(--color5);
 }
 
+/*--select menue--*/
+
 #opal .work-label{
     color: white;
 }
+
+#opal .break-label{
+    color: white;
+}
+
+#opal select {
+    color: white;
+    background-color: var(--color1);
+    border-bottom: 5px solid var(--color2);
+}
+
+#opal select:hover, select:focus{
+    color: var(--color1);
+    background-color: var(--color3);
+    border-bottom-color: var(--color4);
+  }
