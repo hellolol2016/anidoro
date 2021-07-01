@@ -16,7 +16,7 @@
     background-color: var(--color5);
 }
 
-/*--select menue--*/
+/*--select menues--*/
 
 #opal .work-label{
     color: white;
@@ -32,8 +32,81 @@
     border-bottom: 5px solid var(--color2);
 }
 
-#opal select:hover, select:focus{
+#opal select:hover, #opal select:focus{
     color: var(--color1);
     background-color: var(--color3);
     border-bottom-color: var(--color4);
   }
+
+#opal .Go{
+    background-color: var(--color1);
+    color: white;
+}
+
+#opal .Go:hover{
+    background-color: var(--color3);
+}
+
+/*--timer --*/
+
+#opal .timer {
+    background-color: var(--color6);
+}
+
+#opal .actual_timer {
+    color: var(--color8);
+}
+
+/*--timer config--*/
+
+#opal .work_grind {
+    background-color: var(--color6);
+    color: white;
+}
+
+#opal .work_grind:active{
+    background-color: var(--color7);
+}
+
+#opal .break_time {
+    background-color: var(--color6);
+    color: white;
+}
+
+#opal .break_time:active {
+    background-color: var(--color7);
+}
+
+#opal .selected{
+    background-color: var(--color7);
+  }
+
+#opal .replay{
+    color: var(--color1);
+}
+
+#opal .restart_timer {
+    background-color: transparent;
+}
+
+#opal .play_arrow {
+    color: var(--color1);
+}
+
+#opal .start_timer {
+    background-color: transparent;
+}
+
+#opal .pause {
+    color: var(--color1);
+}
+
+#opal .pause_timer {
+    background-color: transparent;
+}
+
+/*--theme buttons--*/
+
+#opal .theme-text {
+    color: var(--color1);
+}
