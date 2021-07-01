@@ -1,0 +1,20 @@
+/* -- vars -- */
+:root {
+    --color1: rgb(50, 65, 210);
+    --color2: rgb(25, 40, 110);
+    --color3: rgb(105, 165, 255);
+    --color4: rgb(80, 130, 200);
+    --color5: rgb(55, 55, 55);
+    --color6: rgb(80, 80, 80);
+    --color7: rgb(45, 45, 45);
+    --color8: rgb(20, 20, 20);
+  }
+
+
+#opal html {
+    background-color: var(--color5);
+}
+
+#opal .work-label{
+    color: white;
+}

@@ -2,16 +2,14 @@
 
 dennis todos
 save selection to localstorage and select it on load
-
+pause function
 
 
 andrew todos
 
 think of themes / make them
-    black/blue
-    red
-    green
-    light/yellow
-add theme buttons
-add pause and restart buttons
-continue styling timer box
+    black/blue - opal
+    red - Sun
+    green - Bamboo
+    light/yellow - angel
+add different css files (with spacing and color)

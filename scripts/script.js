@@ -2,17 +2,33 @@ let workdur;
 let brekdur;
 storage = window.localStorage;
 //localstorage has workdur, brekdur, theme
-if(localStorage.getItem('workdur')===null){
+if(localStorage.getItem('workdur_index')===null && localStorage.getItem('breakdur_index')===null){
     workdur = 25;
     brekdur = 5;
 } else {
     workdur = localStorage.getItem('workdur');
     brekdur = localStorage.getItem('brekdur');
+    
+    let workdurInd = localStorage.getItem('workdur_index');
+    let brekdurInd = localStorage.getItem('brekdur_index');
+
+    let work = document.querySelector(".work_select");
+    let brek = document.querySelector(".break_select");
+
+    brek.getElementsByTagName('option')[brekdurInd].selected = true;
+    work.getElementsByTagName('option')[workdurInd].selected = true;
+    workdur = work.options[workdurInd].value;
+    brekdur = brek.options[brekdurInd].value;
 }
 
 let timer = document.querySelector('.timer h1');
 
-if(workdur > 60){
+const beforeUnloadListener = (event) => {
+    event.preventDefault();
+    return event.returnValue = "Are you sure you want to exit?";
+  };
+
+if(workdur >= 60){
     timer.innerText = (workdur % 60 + ":" + (workdur-60) + ":00");
 } else {
     timer.innerText = (workdur + ":00");
@@ -50,6 +66,9 @@ function workTimer(){
     startTimer(workdur);
 }
 
+function breakTimer(){
+    startTimer(breakdur);
+}
 
 function startTimer(dur){
     let durInMin = dur;
@@ -65,42 +84,69 @@ function startTimer(dur){
         let deltaOut = getDelta(curTime, endTime);
         if(deltaOut === "TERMINATE"){
             //end code
-            
+            removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
         }
         timer.innerText = deltaOut;
         console.log(deltaOut);
     },1001);
     
+    const beforeUnloadListener = (event) => {
+        event.preventDefault();
+        return event.returnValue = "Are you sure you want to exit?";
+      };
+      addEventListener("beforeunload", beforeUnloadListener, {capture: true});
 }
 
 
 function getWorkOption(){
-    let work = document.querySelector(".work-select");
+    let work = document.querySelector(".work_select");
     let time = work.options[work.selectedIndex].value;
-    console.log(time);
+    console.log("selected time option" +time);
     
     return time;
+}
+
+function getWorkIndex(){
+    let work = document.querySelector(".work_select");
+    let ind = work.options[work.selectedIndex].index;
+    console.log("selected work index" +ind);
+    console.log("local work index" +localStorage.getItem('workdur_index'));
+    return ind;
 }
 
 function setWork(selected){
     console.log('setwork')
     selected.selected = true;
-    workdur = getWorkOption()
+    workdur = getWorkOption();
+    workind = getWorkIndex();
     localStorage.setItem('workdur', workdur)
+    localStorage.setItem('workdur_index',workind)
+    console.log("local work option" +localStorage.getItem('workdur'));
 }
 
 function getBreakOption(){
-    let brek = document.querySelector(".break-select");
+    let brek = document.querySelector(".break_select");
     let time = brek.options[brek.selectedIndex].value;
-    
+    console.log("local break option" +localStorage.getItem('brekdur'));
     console.log(time);
     return time;
 }
+
+function getBrekIndex(){
+    let brek = document.querySelector(".break_select");
+    let ind = brek.options[brek.selectedIndex].index;
+    console.log(localStorage.getItem('brekdur_index'));
+
+    return ind;
+}
+
 function setBreak(selected){
     console.log('setbrek')
     selected.selected = true;
     brekdur = getBreakOption()
-    localStorage.setItem('workdur', workdur)
+    brekind = getBrekIndex();
+    localStorage.setItem('brekdur', workdur)
+    localStorage.setItem('brekdur_index',brekind)
 }
 
 const go = document.querySelector(".Go");
@@ -109,6 +155,16 @@ go.addEventListener('click', ()=>{
     setBreak(getBreakOption());
 });
 
+const startButton = document.querySelector('.start_timer');
+startButton.addEventListener('click', ()=>{
+    let mode = document.querySelector('.selected');
+    if(mode.value=== "work"){
+        workTimer();
+    } else if(mode.value === "break"){
+        breakTimer();
+    }
+
+})
 
 
 // work & rest button selection
@@ -123,5 +179,6 @@ workButton.addEventListener('click', ()=>{
 breakButton.addEventListener('click', ()=>{
     breakButton.classList.add('selected');
     workButton.classList.remove('selected')
+    timer.textContent = work.options[work.selectedIndex].value;
 })
 
