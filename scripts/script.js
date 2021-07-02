@@ -51,15 +51,16 @@ function getDelta(curTime, endTime){
     let hours = Math.floor((delta-1 %(1000 * 60 * 60 *24)) / (1000 * 60 * 60))
     let minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((delta % (1000 * 60)) / 1000);
-    if(delta = 0){
-        
+    if(delta <= 0){
+        return "TERMINATE"
     }
 
     minutes = twoZero(minutes);
     seconds = twoZero(seconds);
     if(hours === 0){
         if(minutes === 0){
-            if(seconds === 0){
+            if(seconds <= 0){
+                console.log("TIMER ENDED SHOULD RETURN TERMINATE")
                 return "TERMINATE"
             }
             return(seconds+"s");
@@ -122,6 +123,7 @@ function startTimer(dur){
                 deltaOut = getDelta(curTime, endTime);
                 if(deltaOut === "TERMINATE"){
                     //end code
+                    console.log('timer ended')
                     updateTimerToSelectedOp();
                     removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
                     running = false;
