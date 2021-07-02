@@ -81,30 +81,57 @@ function breakTimer(){
     startTimer(brekdur);
 }
 
+function notifyMe() {
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    }
+  
+    // Let's check whether notification permissions have already been granted
+    else if (Notification.permission === "granted") {
+      // If it's okay let's create a notification
+      var notification = new Notification("Hi there!");
+    }
+  
+    // Otherwise, we need to ask the user for permission
+    else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(function (permission) {
+        // If the user accepts, let's create a notification
+        if (permission === "granted") {
+          var notification = new Notification("Timer ended!");
+        }
+      });
+    }
 
-
+    // At last, if the user has denied notifications, and you
+    // want to be respectful there is no need to bother them any more.
+  }
+let pause = false;
 let deltaOut;
 function startTimer(dur){
     let durInMin = dur;
     let startTime = new Date();
     let endTime = new Date();
     endTime.setTime(startTime.getTime() + (durInMin * 60 * 1000));
-    
-     theTIME = setInterval(function run(){
-
-        let curTime = new Date();
-        let curSec = curTime.getSeconds();
-        curTime.setSeconds(curSec - 2)
-        deltaOut = getDelta(curTime, endTime);
-        if(deltaOut === "TERMINATE"){
-            //end code
-            timer.textContent = brek.options[brek.selectedIndex].value + ":00";
-            removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
-        }
-        timer.innerText = deltaOut;
-        console.log(deltaOut);
-    
-    },1001);
+    if(running === false){
+        running = true;
+            theTIME = setInterval(function run(){
+                let curTime = new Date();
+                let curSec = curTime.getSeconds();
+                curTime.setSeconds(curSec - 2)
+                deltaOut = getDelta(curTime, endTime);
+                if(deltaOut === "TERMINATE"){
+                    //end code
+                    updateTimerToSelectedOp();
+                    removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
+                    running = false;
+                    notifyMe();
+                }
+                timer.innerText = deltaOut;     
+            },1001);
+    } else {
+        console.log('cannot run timer is already running')
+    }
     
     const beforeUnloadListener = (event) => {
         event.preventDefault();
@@ -164,17 +191,47 @@ function setBreak(selected){
     localStorage.setItem('brekdur', workdur)
     localStorage.setItem('brekdur_index',brekind)
 }
+let brek = document.querySelector(".break_select");
+let work = document.querySelector(".work_select");
 
-
-function restartTimer(){
-    brek.options[brek.selectedIndex].value
+function updateTimerToSelected(){
+    let selected = document.querySelector('.selected');
+    if(selected.value === "work"){
+        timer.textContent = work.options[work.selectedIndex].value + ":00";
+    } else {
+        timer.textContent = brek.options[brek.selectedIndex].value + ":00";
+    }
 }
 
+function updateTimerToSelectedOp(){
+    let selected = document.querySelector('.selected');
+    if(selected.value === "work"){
+        timer.textContent = brek.options[brek.selectedIndex].value + ":00";
+    } else {
+        timer.textContent = work.options[work.selectedIndex].value + ":00";
+        
+    }
+}
+
+function restartTimer(){
+    
+    pause = true;
+    console.log('pause is ' + pause)
+    clearInterval(theTIME);
+
+    updateTimerToSelected();
+    running = false;
+}
+const restartButton = document.querySelector('.restart_timer');
+restartButton.addEventListener('click', ()=>{
+    restartTimer();
+})
 
 const set = document.querySelector(".Go");
 set.addEventListener('click', ()=>{
     setWork(getWorkOption());
     setBreak(getBreakOption());
+    updateTimerToSelected();
 });
 
 
@@ -191,10 +248,7 @@ startButton.addEventListener('click', ()=>{
     }
 })
 
-const restartButton = document.querySelector('.restart_timer');
-restartButton.addEventListener('click', ()=>{
 
-})
 
 const themeButtons = document.querySelectorAll('.theme-button');
 
@@ -213,8 +267,7 @@ themeButtons.forEach((themeButton)=>{
     })
 })
 
-let brek = document.querySelector(".break_select");
-let work = document.querySelector(".work_select");
+
 
 // work & rest button selection
 workButton = document.querySelector('.work_grind');
