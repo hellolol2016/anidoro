@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+        <link rel="icon" href="media/icon2.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <link rel="stylesheet" href="test.css">
-
     </head>
-
     <body>
-        <div class="big">
-            <div class="small"></div>
-            <div class="small"></div>
-            <div class="small"></div>
-        </div>
-    </body>
+        <img src="media/logo.png">
 
+        <div class="theme-buttons">
+            <h1 class="theme-text">Theme Buttons</h1>
+            <button class="opal">Opal</button>
+            <button class="angel">Angel</button>
+            <button class="rose">Rose</button>
+            <button class="bamboo">Bamboo</button>
+        </div>
+
+        <div class="selector-container">
+
+            <div class="selectors">
+                <div class="work_dur">
+                    <div class="work_label">Work Duration</div>
+                    <select class="work_select">
+                        <option value="25">25:00</option>
+                        <option value="30">30:00</option>
+                        <option value="40">40:00</option>
+                        <option value="45">45:00</option>
+                        <option value="60">1:00:00</option>
+                        <option value="90">1:30:00</option>
+                    </select>
+                    <div class="drop-down"></div>
+                </div>
+                <div class="break_dur">
+                    <div class="break_label">Break</div>
+                    <select class="break_select">
+                        <option value="5">5:00</option>
+                        <option value="10">10:00</option>
+                        <option value="15">15:00</option>
+                        <option value="20">20:00</option>
+                        <option value="25">25:00</option>
+                        <option value="30">30:00</option>
+                    </select>
+                    <div class="drop-down"></div>
+                </div>
+                <button class="Go">Set Time</button>
+            </div>
+        </div>
+
+        <div class="timer">
+            <button class="work_grind selected" value="work">Work Grind</button>
+            <button class="break_time" value="break">Break Time!</button>
+            <h1 class="actual_timer"></h1>
+            <button class="restart_timer"><i class="material-icons replay">replay</i></button>
+            <button class="start_timer"><i class="material-icons play_arrow">play_arrow</i></button>
+            <button class="pause_timer"><i class="material-icons pause">pause</i></button>
+        </div>
+        
+    </body>
+    <script src="scripts/script.js"></script>
 </html>
