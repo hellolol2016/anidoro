@@ -141,7 +141,9 @@ function startTimer(dur){
                         var notification = new Notification("Timer ended!")
                     }
                     clearInterval(theTIME);
+                    running = false;
                     return;
+                    
                 }
                 timer.innerText = deltaOut;  
                 console.log(deltaOut);   
