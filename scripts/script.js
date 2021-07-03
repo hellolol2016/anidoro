@@ -157,7 +157,6 @@ function startTimer(dur){
       addEventListener("beforeunload", beforeUnloadListener, {capture: true});
 }
 
-
 function getWorkOption(){
     let work = document.querySelector(".work_select");
     let time = work.options[work.selectedIndex].value;
@@ -223,8 +222,12 @@ function updateTimerToSelected(){
 function updateTimerToSelectedOp(){
     let selected = document.querySelector('.selected');
     if(selected.value === "work"){
+        breakButton.classList.add('selected');
+        workButton.classList.remove('selected')
         timer.textContent = brek.options[brek.selectedIndex].value + ":00";
     } else {
+        workButton.classList.add('selected');
+        breakButton.classList.remove('selected')
         timer.textContent = work.options[work.selectedIndex].value + ":00";
     }
 }
@@ -264,8 +267,6 @@ startButton.addEventListener('click', ()=>{
     }
 })
 
-
-
 const themeButtons = document.querySelectorAll('.theme-button');
 
 if (docTheme.getAttribute("href") == "styles/styles.css"){
@@ -282,8 +283,6 @@ themeButtons.forEach((themeButton)=>{
         docTheme.setAttribute('href',`styles/${newTheme}.css`);
     })
 })
-
-
 
 // work & rest button selection
 workButton = document.querySelector('.work_grind');
@@ -302,4 +301,3 @@ breakButton.addEventListener('click', ()=>{
     clearInterval(theTIME);
     timer.textContent = brek.options[brek.selectedIndex].value + ":00";
 })
-
