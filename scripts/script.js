@@ -126,10 +126,12 @@ function startTimer(dur){
                     console.log('timer ended')
                     updateTimerToSelectedOp();
                     removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
-                    running = false;
                     notifyMe();
+                    clearInterval(theTIME);
+                    return;
                 }
-                timer.innerText = deltaOut;     
+                timer.innerText = deltaOut;  
+                console.log(deltaOut);   
             },1001);
     } else {
         console.log('cannot run timer is already running')
@@ -211,7 +213,6 @@ function updateTimerToSelectedOp(){
         timer.textContent = brek.options[brek.selectedIndex].value + ":00";
     } else {
         timer.textContent = work.options[work.selectedIndex].value + ":00";
-        
     }
 }
 
