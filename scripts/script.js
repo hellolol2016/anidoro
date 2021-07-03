@@ -4,6 +4,17 @@ let brekdur;
 let theme = 'opal'
 let running = false;
 let docTheme = document.getElementsByTagName('link')[0];
+
+let notPerm = false;
+if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission();
+  }
+
 storage = window.localStorage;
 //localstorage has workdur, brekdur, theme
 if(localStorage.getItem('workdur_index')===null && localStorage.getItem('breakdur_index')===null){
@@ -126,7 +137,9 @@ function startTimer(dur){
                     console.log('timer ended')
                     updateTimerToSelectedOp();
                     removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
-                    notifyMe();
+                    if(Notification.permission === "granted"){
+                        var notification = new Notification("Timer ended!")
+                    }
                     clearInterval(theTIME);
                     return;
                 }
