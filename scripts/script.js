@@ -91,7 +91,7 @@ function notifyMe() {
     // Let's check whether notification permissions have already been granted
     else if (Notification.permission === "granted") {
       // If it's okay let's create a notification
-      var notification = new Notification("Hi there!");
+      var notification = new Notification("Timer ended!");
     }
   
     // Otherwise, we need to ask the user for permission
@@ -279,12 +279,14 @@ breakButton = document.querySelector('.break_time');
 workButton.addEventListener('click', ()=>{
     workButton.classList.add('selected');
     breakButton.classList.remove('selected')
+    clearInterval(theTIME);
     timer.textContent = work.options[work.selectedIndex].value + ":00";
 })
 
 breakButton.addEventListener('click', ()=>{
     breakButton.classList.add('selected');
     workButton.classList.remove('selected')
+    clearInterval(theTIME);
     timer.textContent = brek.options[brek.selectedIndex].value + ":00";
 })
 

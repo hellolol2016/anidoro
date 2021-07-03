@@ -365,3 +365,8 @@ select:hover, select:focus{
     position: relative;
     top: 2px;
   }
+
+
+  .note {
+    text-align: center;
+  }
