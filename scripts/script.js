@@ -252,6 +252,7 @@ const set = document.querySelector(".Go");
 set.addEventListener('click', ()=>{
     setWork(getWorkOption());
     setBreak(getBreakOption());
+    restartTimer();
     updateTimerToSelected();
 });
 
